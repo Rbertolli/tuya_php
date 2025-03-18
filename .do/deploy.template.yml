@@ -1,7 +1,5 @@
 name: app-de-teste
 region: nyc
-features:
-  - buildpack-stack=ubuntu-22
 functions:
   - name: tuya-login
     github:

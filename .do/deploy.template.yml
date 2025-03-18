@@ -1,27 +1,24 @@
-name: app-de-teste
-region: nyc
+alerts:
+  - rule: DEPLOYMENT_FAILED
+  - rule: DOMAIN_FAILED
 functions:
   - name: tuya-login
     github:
-      repo: Rbertolli/tuya_php
       branch: main
+      deploy_on_push: true
+      repo: Rbertolli/tuya_php
     source_dir: functions/tuya
     entrypoint: login.php
+    routes:
+      - path: /tuya-login
   - name: tuya-smart-lock
     github:
-      repo: Rbertolli/tuya_php
       branch: main
+      deploy_on_push: true
+      repo: Rbertolli/tuya_php
     source_dir: functions/tuya
     entrypoint: smart_lock.php
-ingress:
-  rules:
-    - component:
-        name: tuya-login
-      match:
-        path:
-          prefix: /tuya-login
-    - component:
-        name: tuya-smart-lock
-      match:
-        path:
-          prefix: /tuya-smart-lock
+    routes:
+      - path: /tuya-smart-lock
+name: app-de-teste
+region: nyc

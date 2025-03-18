@@ -21,3 +21,5 @@ spec:
         repo: rbertolli/tuya_php # Use your repository
         branch: main
       source_dir: /packages
+      routes:
+        - path: /tuya-functions

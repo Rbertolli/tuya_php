@@ -1,41 +1,25 @@
-# deploy.yaml
-name: tuya-php-functions
-region: nyc
-services:
-  - name: login
-    http_port: 8080
-    run_command: php -S 0.0.0.0:8080 login.php
-    environment_slug: php
-    source_dir: /functions/login
-    envs:
-      - key: TUYA_API_KEY
-        scope: RUN_TIME
-        value: "${TUYA_API_KEY}"
-      - key: TUYA_API_SECRET
-        scope: RUN_TIME
-        value: "${TUYA_API_SECRET}"
-      - key: TUYA_REGION
-        scope: RUN_TIME
-        value: "${TUYA_REGION}"
-      - key: API_URL
-        scope: RUN_TIME
-        value: "${API_URL}"
+project:
+  name: tuya-php-functions
+  region: nyc  # Região (ex: nyc, sfo, ams)
 
-  - name: create-temp-password
-    http_port: 8080
-    run_command: php -S 0.0.0.0:8080 smart_lock.php
-    environment_slug: php
-    source_dir: /functions/create-temp-password
-    envs:
-      - key: TUYA_API_KEY
-        scope: RUN_TIME
-        value: "${TUYA_API_KEY}"
-      - key: TUYA_API_SECRET
-        scope: RUN_TIME
-        value: "${TUYA_API_SECRET}"
-      - key: TUYA_REGION
-        scope: RUN_TIME
-        value: "${TUYA_REGION}"
-      - key: API_URL
-        scope: RUN_TIME
-        value: "${API_URL}"
+packages:
+  - name: tuya
+    functions:
+      - name: login
+        runtime: php:8.0  # Usando PHP 8.0
+        main: login.php
+        web: true
+        environment_variables:
+          TUYA_API_KEY: "${TUYA_API_KEY}"
+          TUYA_API_SECRET: "${TUYA_API_SECRET}"
+          TUYA_REGION: "${TUYA_REGION}"
+          API_URL: "${API_URL}"
+      
+      - name: create-temp-password
+        runtime: php:8.0
+        main: smart_lock.php
+        web: true
+        environment_variables:
+          TUYA_API_KEY: "${TUYA_API_KEY}"
+          TUYA_API_SECRET: "${TUYA_API_SECRET}"
+          TUYA_REGION: "${TUYA_REGION}"

@@ -15,3 +15,9 @@ spec:
       run_command: heroku-php-apache2
       routes:
         - path: /
+  functions:
+    - name: tuya-functions # Replace with your desired function name
+      github:
+        repo: rbertolli/tuya_php # Use your repository
+        branch: main
+      source_dir: /packages

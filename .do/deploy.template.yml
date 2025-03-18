@@ -1,14 +1,12 @@
 spec:
-  name: tuya-php-app
+  name: tuya-php-functions
   features:
-    container: true
+    function: true
   services:
     - name: tuya-php-functions
-      type: container
+      type: function
       image:
         repository: ghcr.io/rbertolli/tuya_php
         tag: latest
-      ports:
-        - container_port: 8080
       routes:
-        - path: /
+        - path: /functions

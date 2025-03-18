@@ -1,9 +1,9 @@
 spec:
-  name: tuya-php-functions
+  name: tuya-php-functions2
   features:
     function: true
   services:
-    - name: tuya-php-functions
+    - name: tuya-php-functions2
       type: function
       image:
         repository: ghcr.io/rbertolli/tuya_php

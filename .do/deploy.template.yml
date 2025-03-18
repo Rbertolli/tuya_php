@@ -1,0 +1,29 @@
+name: app-de-teste
+region: nyc
+features:
+  - buildpack-stack=ubuntu-22
+functions:
+  - name: tuya-login
+    github:
+      repo: Rbertolli/tuya_php
+      branch: main
+    source_dir: functions/tuya
+    entrypoint: login.php
+  - name: tuya-smart-lock
+    github:
+      repo: Rbertolli/tuya_php
+      branch: main
+    source_dir: functions/tuya
+    entrypoint: smart_lock.php
+ingress:
+  rules:
+    - component:
+        name: tuya-login
+      match:
+        path:
+          prefix: /tuya-login
+    - component:
+        name: tuya-smart-lock
+      match:
+        path:
+          prefix: /tuya-smart-lock

@@ -1,18 +1,23 @@
 spec:
   name: tuya-php-serverless
-  services:
+  packages:
     - name: smart-lock
-      git:
-        branch: main
-        repo_clone_url: https://github.com/Rbertolli/tuya_php.git
-      build_command: "composer install --no-dev"
-      run_command: "php -S 0.0.0.0:8080 -t public"
-      envs:
-        - key: TUYA_API_KEY
-          scope: RUN_TIME
-        - key: TUYA_API_SECRET
-          scope: RUN_TIME
-        - key: TUYA_REGION
-          scope: RUN_TIME
-      routes:
-        - path: "/"
+      environment:
+        API_URL: "${API_URL}"
+      functions:
+        - name: login
+          runtime: php:default
+          main: login.php
+          web: true
+          environment:
+            TUYA_API_KEY: "${TUYA_API_KEY}"
+            TUYA_API_SECRET: "${TUYA_API_SECRET}"
+            TUYA_REGION: "${TUYA_REGION}"
+        - name: create-temp-password
+          runtime: php:default
+          main: smart_lock.php
+          web: true
+          environment:
+            TUYA_API_KEY: "${TUYA_API_KEY}"
+            TUYA_API_SECRET: "${TUYA_API_SECRET}"
+            TUYA_REGION: "${TUYA_REGION}"

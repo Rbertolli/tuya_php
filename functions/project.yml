@@ -1,4 +1,3 @@
-region: nyc
 services:
   - name: login-service
     source_dir: /functions/tuya

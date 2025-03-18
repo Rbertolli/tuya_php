@@ -1,19 +1,20 @@
-name: aibnb-app
-region: nyc
-features:
-  - buildpack-stack=ubuntu-22
-services:
-  - name: aibnb
-    runtime: php
-    php_version: "8.1" # Adicionado a versão do PHP, se necessário ajuste a versão
-    http_port: 8080
-    instance_count: 1
-    instance_size_slug: apps-s-1vcpu-0.5gb
-    source_dir: /
-    github:
-      branch: main
-      deploy_on_push: true
-      repo: Rbertolli/aibnb
-    run_command: heroku-php-apache2
-    routes:
-      - path: /
+spec:
+  name: aibnb-app
+  region: nyc
+  features:
+    - buildpack-stack=ubuntu-22
+  services:
+    - name: aibnb
+      runtime: php
+      php_version: "8.1" # Adicionado a versão do PHP, se necessário ajuste a versão
+      http_port: 8080
+      instance_count: 1
+      instance_size_slug: apps-s-1vcpu-0.5gb
+      source_dir: /
+      github:
+        branch: main
+        deploy_on_push: true
+        repo: Rbertolli/aibnb
+      run_command: heroku-php-apache2
+      routes:
+        - path: /

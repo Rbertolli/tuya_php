@@ -14,20 +14,20 @@ spec:
     - buildpack-stack=ubuntu-22
   functions:
     - name: tuya-login
+      main: login.php
       github:
         repo: rbertolli/tuya_php
         branch: main
         deploy_on_push: true
-      source_dir: packages/tuya
-      main: login.php
+      source_dir: packages/tuya      
       routes:
         - path: /login
     - name: tuya-smart-lock
+      main: smart_lock.php
       github:
         repo: rbertolli/tuya_php
         branch: main
         deploy_on_push: true
       source_dir: packages/tuya
-      main: smart_lock.php
       routes:
         - path: /smart_lock

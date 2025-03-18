@@ -1,13 +1,13 @@
 packages:
 - name: tuya
   functions:
-    - name: tuya-login
+    - name: login
       web: true
       limits:
         timeout: 3000      # tempo máximo de execução em milissegundos
         memory: 128        # memória máxima em megabytes
         logs: 1024         # limite de logs em kilobytes
-    - name: tuya-smart-lock
+    - name: smart_lock
       web: true
       limits:
         timeout: 3000

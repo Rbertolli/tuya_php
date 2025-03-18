@@ -1,7 +1,7 @@
 spec:
   name: tuya-php-functions
   packages:
-    - name: smart-lock
+    - name: tuya
       environment:
         API_URL: "${API_URL}"
       functions:

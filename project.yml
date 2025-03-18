@@ -8,7 +8,7 @@ environment:
   LOG_LEVEL: info
 
 packages:
-  - name: smart-lock
+  - name: tuya
     environment:
       API_URL: "${API_URL}"
     functions:

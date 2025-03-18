@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../src/TuyaClient.php';
+require_once '/.app_platform_workspace/src/TuyaClient.php';
 use Tuya\TuyaClient;
 
 function main(array $args): array

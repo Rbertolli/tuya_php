@@ -16,4 +16,4 @@ ingress:
       name: tuya-php-functions
     match:
       path:
-        prefix: /
+        prefix: /functions

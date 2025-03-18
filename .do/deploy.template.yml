@@ -19,7 +19,7 @@ spec:
         branch: main
         deploy_on_push: true
       source_dir: packages/tuya
-      main: login.php
+      entrypoint: login.php
       routes:
         - path: /login
     - name: tuya-smart-lock
@@ -28,6 +28,6 @@ spec:
         branch: main
         deploy_on_push: true
       source_dir: packages/tuya
-      main: smart_lock.php
+      entrypoint: smart_lock.php
       routes:
         - path: /smart_lock

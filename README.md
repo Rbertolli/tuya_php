@@ -1,22 +1,45 @@
 # Tuya PHP
 
-A PHP client for the Tuya API, organized into a modular structure with support for generic functionalities and specific smart-lock features. This project uses Composer for dependency management and [phpdotenv](https://github.com/vlucas/phpdotenv) to securely load credentials from environment variables.
+This is a PHP client for interacting with the Tuya API, including support for Smart Locks and serverless deployment.
 
-## Features
+## 🚀 Deploy to DigitalOcean
+
+You can deploy this project on **DigitalOcean** with a single click and get **$200 in credits** when creating an account.
+
+[![Deploy to DigitalOcean](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/Rbertolli/tuya_php/tree/main)
+
+### **🔹 One-Click Deploy**
+Deploy this project instantly on DigitalOcean:
+
+[![Deploy to DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/Rbertolli/tuya_php/tree/main)
+
+## 📖 Features
 
 - **Generic Tuya Client:** Communicate with the Tuya API for token retrieval and device information.
 - **Smart-Lock Functions:** Specific smart-lock functionalities, including:
   - Retrieving a password ticket for smart locks.
   - Encrypting a numeric password.
   - Creating a temporary password.
+- Serverless functions support.
+- Click-to-Deploy on DigitalOcean App Platform.
+- Easy integration with PHP applications.
 
-## Requirements
+## ⚙️ Requirements
 
 - PHP 7.2 or higher
 - PHP extensions: `curl`, `openssl`
 - [Composer](https://getcomposer.org/)
 
-## How to Generate Tuya API Credentials
+## 📜 Environment Variables
+
+Configure your `.env` file with the following:
+```
+TUYA_API_KEY=your_api_key_here
+TUYA_API_SECRET=your_api_secret_here
+TUYA_REGION=your_region_here
+```
+
+## 🌐 How to Generate Tuya API Credentials
 
 To use this package, you must first obtain API credentials from Tuya. Follow these steps:
 
@@ -44,33 +67,33 @@ Once your project is created, go to **Project Details** and find:
 3. Scan the QR Code using the **Tuya Smart App**.
 4. After linking, all devices in your Tuya App will be available via API.
 
-### **5. Set Up Environment Variables**
-Create a `.env` file in the root directory of the project with the following content:
+## 🌐 Serverless Functions
 
-```dotenv
-TUYA_CLIENT_ID=your_client_id
-TUYA_CLIENT_SECRET=your_client_secret
-TUYA_API_URL=https://api.tuya.com
-TUYA_TOKEN_CACHE_FILE=./token_cache.json
+This project supports DigitalOcean Functions for seamless API execution.
+
+### Example Requests
+
+You can test the API using the `examples/requests.http` file or with cURL/Postman.
+
+#### 🔐 Authenticate with Tuya API
+```http
+GET {{base_url}}/functions/login.php
 ```
 
-## Production Deployment
+#### 🔑 Create a Temporary Smart Lock Password
+```http
+GET {{base_url}}/functions/smart_lock.php?device_id=YOUR_DEVICE_ID&password=123456&start_time=1713456000&end_time=1713542400
+```
 
-When deploying to production (for example, using DigitalOcean's App Platform), you should set your environment variables directly in the platform's configuration. This way, the project will work without relying on a `.env` file.
+## 🛠 Click-to-Deploy
 
-## Contributing
+To deploy on DigitalOcean App Platform, simply use the `do_config/project.yml` configuration.
 
-Contributions are welcome! Feel free to open issues or submit pull requests to help improve the project or add new functionalities.
+## 🏗 Contributing
 
-## License
+Contributions are welcome! Feel free to open issues or submit pull requests.
+If you have any questions, contact us via email at **opensource@bertolli.com.br**.
 
-This project is licensed under the [MIT License](LICENSE).
+## 📄 License
 
-
-## Deploy na DigitalOcean 🚀
-
-Agora você pode facilmente rodar este projeto na [DigitalOcean](https://www.digitalocean.com/?refcode=e6dcb42c53c3&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge) e ganhar **U$200 em créditos** ao criar sua conta.
-
-<a href="https://www.digitalocean.com/?refcode=e6dcb42c53c3&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
-    <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" alt="DigitalOcean Referral Badge" />
-</a>
+This project is licensed under the MIT License.

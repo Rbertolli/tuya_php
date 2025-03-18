@@ -9,5 +9,5 @@ functions:
   name: tuya-php-app
   routes:
         - path: /
-  source_dir: /functions
+  source_dir: /functions/tuya
 name: tuya

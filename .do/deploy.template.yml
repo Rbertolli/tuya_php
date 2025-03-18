@@ -16,3 +16,16 @@ spec:
       run_command: heroku-php-apache2
       routes:
         - path: /
+  functions:
+  - name: tuya-login
+    runtime: php
+    source_dir: functions/tuya
+    entrypoint: login.php
+    routes:
+      - path: /tuya-login
+  - name: tuya-smart-lock
+    runtime: php
+    source_dir: functions/tuya
+    entrypoint: smart_lock.php
+    routes:
+      - path: /tuya-smart-lock

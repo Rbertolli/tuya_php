@@ -2,14 +2,8 @@
 
 This is a PHP client for interacting with the Tuya API, including support for Smart Locks and serverless deployment.
 
-## 🚀 Deploy to DigitalOcean
-
-You can deploy this project on **DigitalOcean** with a single click and get **$200 in credits** when creating an account.
-
-[![Deploy to DigitalOcean](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/Rbertolli/tuya_php/tree/main)
-
 ### **🔹 One-Click Deploy**
-Deploy this project instantly on DigitalOcean:
+You can deploy this project on **DigitalOcean** with a single click and get **$200 in credits** when creating an account.
 
 [![Deploy to DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/Rbertolli/tuya_php/tree/main)
 

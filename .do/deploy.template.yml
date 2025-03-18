@@ -1,28 +1,21 @@
+name: tuya_php
+repo: Rbertolli/tuya_php
+branch: main
+buildpack_stack: ubuntu-22
+
 services:
   - name: web
-    github:
-      repo: Rbertolli/tuya_php
-      branch: main
-      deploy_on_push: true
     source_dir: /
-    run_command: "php -S 0.0.0.0:${PORT}"
     routes:
       - path: /
+
 functions:
   - name: tuya-login
-    github:
-      repo: Rbertolli/tuya_php
-      branch: main
-      deploy_on_push: true
     source_dir: functions/tuya
     entrypoint: login.php
     routes:
       - path: /tuya-login
   - name: tuya-smart-lock
-    github:
-      repo: Rbertolli/tuya_php
-      branch: main
-      deploy_on_push: true
     source_dir: functions/tuya
     entrypoint: smart_lock.php
     routes:

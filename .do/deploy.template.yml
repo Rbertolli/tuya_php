@@ -1,10 +1,14 @@
-functions:
-- github:
+spec:
+  name: tuya-php-app
+  features:
+    buildpack-stack: ubuntu-22
+services:
+    - name: tuya-php-functions
+      type: function
+      github:
         repo: Rbertolli/tuya_php
         branch: main
         deploy_on_push: true
-  name: tuya-php-app
-  routes:
-        - path: /
-  source_dir: /functions/tuya
-name: tuya
+      source_dir: functions
+      routes:
+        - path: /functions

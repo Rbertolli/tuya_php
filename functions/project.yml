@@ -1,4 +1,3 @@
-name: tuya-php-functions
 region: nyc
 services:
   - name: login-service

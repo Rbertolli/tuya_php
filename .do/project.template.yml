@@ -1,0 +1,27 @@
+parameters:
+  project_env: production
+
+environment:
+  LOG_LEVEL: info
+
+packages:
+  - name: smart-lock
+    environment:
+      API_URL: "${API_URL}"
+    functions:
+      - name: login
+        runtime: php
+        main: login.php
+        web: true
+        environment:
+          TUYA_API_KEY: "${TUYA_API_KEY}"
+          TUYA_API_SECRET: "${TUYA_API_SECRET}"
+          TUYA_REGION: "${TUYA_REGION}"
+      - name: create-temp-password
+        runtime: php
+        main: smart_lock.php
+        web: true
+        environment:
+          TUYA_API_KEY: "${TUYA_API_KEY}"
+          TUYA_API_SECRET: "${TUYA_API_SECRET}"
+          TUYA_REGION: "${TUYA_REGION}"

@@ -1,12 +1,34 @@
-spec:
-  name: tuya-php-functions2
-  features:
-    function: true
-  services:
-    - name: tuya-php-functions2
-      type: function
-      image:
-        repository: ghcr.io/rbertolli/tuya_php
-        tag: latest
-      routes:
-        - path: /functions
+alerts:
+  - rule: DEPLOYMENT_FAILED
+  - rule: DOMAIN_FAILED
+name: app-de-teste
+region: nyc
+services:
+  - name: web
+    github:
+      repo: Rbertolli/tuya_php
+      branch: main
+      deploy_on_push: true
+    source_dir: /
+    run_command: "php -S 0.0.0.0:${PORT}"
+    routes:
+      - path: /
+functions:
+  - name: tuya-login
+    github:
+      repo: Rbertolli/tuya_php
+      branch: main
+      deploy_on_push: true
+    source_dir: functions/tuya
+    entrypoint: login.php
+    routes:
+      - path: /tuya-login
+  - name: tuya-smart-lock
+    github:
+      repo: Rbertolli/tuya_php
+      branch: main
+      deploy_on_push: true
+    source_dir: functions/tuya
+    entrypoint: smart_lock.php
+    routes:
+      - path: /tuya-smart-lock

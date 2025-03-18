@@ -5,7 +5,6 @@ spec:
     - buildpack-stack=ubuntu-22
   services:
     - name: aibnb
-      runtime: php
       http_port: 8080
       instance_count: 1
       instance_size_slug: apps-s-1vcpu-0.5gb

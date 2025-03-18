@@ -18,12 +18,10 @@ spec:
         - path: /
   functions:
   - name: tuya-login
-    runtime: php
     source_dir: functions/tuya
     routes:
       - path: /tuya-login
   - name: tuya-smart-lock
-    runtime: php
     source_dir: functions/tuya
     routes:
       - path: /tuya-smart-lock

@@ -2,7 +2,7 @@ spec:
   name: tuya-php-app
   features:
     buildpack-stack: ubuntu-22
-services:
+  services:
     - name: tuya-php-functions
       type: function
       github:

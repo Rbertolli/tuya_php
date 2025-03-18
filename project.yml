@@ -1,5 +1,5 @@
 packages:
-  - name: tuya
+  - name: tuya-functions
     functions:
       - name: login
         source: login.php

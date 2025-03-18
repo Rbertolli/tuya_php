@@ -1,6 +1,3 @@
-# Nome do aplicativo
-name: tuya_php
-
 # Serviços (web)
 services:
   - name: web

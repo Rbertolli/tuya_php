@@ -23,8 +23,8 @@ jobs:
 
       - name: Build the Docker image
         run: |
-          docker build -t ghcr.io/${{ github.repository }}:latest .
+          docker build -t ghcr.io/rbertolli/tuya_php:latest .
 
       - name: Push the Docker image
         run: |
-          docker push ghcr.io/${{ github.repository }}:latest
+          docker push ghcr.io/rbertolli/tuya_php:latest

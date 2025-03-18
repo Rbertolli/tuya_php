@@ -1,0 +1,17 @@
+# Nome do aplicativo
+name: tuya_php
+
+# Serviços (web)
+services:
+  - name: web
+    runtime: php
+    php_version: "8.1"
+    http_port: 8080
+    envs:
+      - key: APP_ENV
+        value: production
+    source_dir: /
+    routes:
+      - path: /
+    build_command: "composer install --no-dev --optimize-autoloader"
+    run_command: "php -S 0.0.0.0:${PORT}"

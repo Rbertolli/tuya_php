@@ -2,6 +2,19 @@ spec:
   name: tuya-app
   features:
     - buildpack-stack=ubuntu-22
+  services:
+    - name: tuya-php
+      http_port: 8080
+      instance_count: 1
+      instance_size_slug: apps-s-1vcpu-0.5gb
+      source_dir: /
+      github:
+        branch: main
+        deploy_on_push: true
+        repo: rbertolli/tuya_php
+      run_command: heroku-php-apache2
+      routes:
+        - path: /
   functions:
     - name: tuya-functions # Replace with your desired function name
       github:

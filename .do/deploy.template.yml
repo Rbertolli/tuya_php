@@ -9,6 +9,6 @@ spec:
         repo: Rbertolli/tuya_php
         branch: main
         deploy_on_push: true
-      source_dir: functions
+      source_dir: /functions
       routes:
-        - path: /functions
+        - path: /

@@ -1,10 +1,9 @@
 spec:
-  name: aibnb-app
-  region: nyc
+  name: tuya-app
   features:
     - buildpack-stack=ubuntu-22
   services:
-    - name: aibnb
+    - name: tuya-php
       http_port: 8080
       instance_count: 1
       instance_size_slug: apps-s-1vcpu-0.5gb
@@ -12,7 +11,7 @@ spec:
       github:
         branch: main
         deploy_on_push: true
-        repo: Rbertolli/aibnb
+        repo: rbertolli/tuya_php
       run_command: heroku-php-apache2
       routes:
         - path: /

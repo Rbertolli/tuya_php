@@ -94,4 +94,27 @@ class TuyaClient
         $timestamp = round(microtime(true) * 1000);
         $nonce     = $this->generateUUID();
         $urlPath   = "/v2.0/cloud/thing/{$deviceId}";
- 
+        $sign      = $this->generateSignature($timestamp, $nonce, $accessToken, $urlPath);
+        
+        $headers = [
+            "client_id: "    . $this->clientId,
+            "t: "            . $timestamp,
+            "nonce: "        . $nonce,
+            "sign: "         . $sign,
+            "sign_method: HMAC-SHA256",
+            "access_token: " . $accessToken,
+            "Content-Type: application/json"
+        ];
+        
+        $ch = curl_init($this->apiUrl . $urlPath);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HTTPHEADER     => $headers,
+            CURLOPT_VERBOSE        => true,
+            CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
+        ]);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        return json_decode($result, true);
+    }
+}

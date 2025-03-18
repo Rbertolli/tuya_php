@@ -20,5 +20,5 @@ spec:
         deploy_on_push: true
       source_dir: /      
       routes:
-        - path: /
+        - path: /api/tuya
   

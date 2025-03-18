@@ -1,4 +1,26 @@
-# Serviços (web)
+name: tuya_php_app
+alerts:
+  - rule: DEPLOYMENT_FAILED
+  - rule: DOMAIN_FAILED
+functions:
+  - github:
+      branch: main
+      deploy_on_push: true
+      repo: rbertolli/tuya
+    name: tuya-login
+    routes:
+      - path: /tuya-login
+    source_dir: packages/tuya
+    entrypoint: login.php
+  - github:
+      branch: main # ou a branch que você usa
+      deploy_on_push: true
+      repo: rbertolli/tuya
+    name: tuya-smart-lock
+    routes:
+      - path: /tuya-smart-lock
+    source_dir: packages/tuya
+    entrypoint: smart_lock.php
 services:
   - name: web
     runtime: php

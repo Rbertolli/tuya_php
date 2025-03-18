@@ -1,14 +1,15 @@
-spec:
-  name: tuya-php-app
-  features:
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+features:
     buildpack-stack: ubuntu-22
-  services:
-    - name: tuya-php-functions
-      type: function
-      github:
-        repo: Rbertolli/tuya_php
-        branch: main
-        deploy_on_push: true
-      source_dir: /functions
-      routes:
-        - path: /
+functions:
+- github:
+    branch: main
+    deploy_on_push: true
+    repo: Rbertolli/tuya_php
+  name: tuya-php-functions
+  routes:
+  - path: /
+  source_dir: /
+name: tuya-php

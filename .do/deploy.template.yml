@@ -1,23 +1,32 @@
-spec:
-  name: tuya-php-functions
-  packages:
-    - name: tuya
-      environment:
-        API_URL: "${API_URL}"
-      functions:
-        - name: login
-          runtime: php:default
-          main: login.php
-          web: true
-          environment:
-            TUYA_API_KEY: "${TUYA_API_KEY}"
-            TUYA_API_SECRET: "${TUYA_API_SECRET}"
-            TUYA_REGION: "${TUYA_REGION}"
-        - name: create-temp-password
-          runtime: php:default
-          main: smart_lock.php
-          web: true
-          environment:
-            TUYA_API_KEY: "${TUYA_API_KEY}"
-            TUYA_API_SECRET: "${TUYA_API_SECRET}"
-            TUYA_REGION: "${TUYA_REGION}"
+project: tuya-php-functions  # Nome do projeto
+
+environment:
+  name: dev  # Ambiente (ex: prod, staging)
+  region: nyc  # Região do DO (ex: sfo, ams)
+
+functions:
+  # Function 1: Login
+  - name: login
+    source: ./functions/tuya/login  # Caminho relativo ao código
+    main: login.php
+    runtime: php:default  # ⚠️ Ver observação sobre PHP abaixo
+    http_route: /login    # Rota HTTP
+    methods: [POST]       # Método permitido
+    environment_variables:
+      TUYA_API_KEY: "${TUYA_API_KEY}"
+      TUYA_API_SECRET: "${TUYA_API_SECRET}"
+      TUYA_REGION: "${TUYA_REGION}"
+      API_URL: "${API_URL}"
+
+  # Function 2: Create Temp Password
+  - name: create-temp-password
+    source: ./functions/tuya/create-temp-password
+    main: smart_lock.php
+    runtime: php:default
+    http_route: /create-temp-password
+    methods: [POST]
+    environment_variables:
+      TUYA_API_KEY: "${TUYA_API_KEY}"
+      TUYA_API_SECRET: "${TUYA_API_SECRET}"
+      TUYA_REGION: "${TUYA_REGION}"
+      API_URL: "${API_URL}"

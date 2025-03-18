@@ -3,6 +3,7 @@ name: tuya_php
 
 # Definição do ambiente de build
 env: php
+php_version: "8.1" # Adicionado a versão do PHP
 build_command: "composer install --no-dev --optimize-autoloader"
 run_command: "php -S 0.0.0.0:${PORT}"
 
@@ -21,12 +22,14 @@ services:
 functions:
   - name: tuya-login
     runtime: php
+    php_version: "8.1" # Adicionado a versão do PHP
     source_dir: functions/tuya
     entrypoint: login.php
     routes:
       - path: /tuya-login
   - name: tuya-smart-lock
     runtime: php
+    php_version: "8.1" # Adicionado a versão do PHP
     source_dir: functions/tuya
     entrypoint: smart_lock.php
     routes:

@@ -1,0 +1,31 @@
+services:
+  - name: tuya-php-serverless
+    type: web
+    runtime: php
+    build_command: "composer install --no-dev"
+    run_command: "php -S 0.0.0.0:8080 -t public"
+    envs:
+      - key: TUYA_API_KEY
+        scope: RUN_TIME
+      - key: TUYA_API_SECRET
+        scope: RUN_TIME
+      - key: TUYA_REGION
+        scope: RUN_TIME
+    routes:
+      - path: "/"
+    github:
+      branch: main
+      deploy_on_push: true
+
+functions:
+  - name: tuyaFunction
+    runtime: php
+    source_dir: functions
+    entrypoint: index.php
+    envs:
+      - key: TUYA_API_KEY
+        scope: RUN_TIME
+      - key: TUYA_API_SECRET
+        scope: RUN_TIME
+      - key: TUYA_REGION
+        scope: RUN_TIME

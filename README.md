@@ -8,14 +8,14 @@ You can deploy this project on **DigitalOcean** with a single click and get **$2
 
 [![Deploy to DigitalOcean](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=e6dcb42c53c3&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
 
+
 ### **🔹 One-Click Deploy**
 Deploy this project instantly on DigitalOcean:
 
-[![Deploy to DigitalOcean](https://deploy.workers.dev/?url=https://github.com/Rbertolli/tuya_php)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/Rbertolli/tuya_php)
+[![Deploy to DigitalOcean](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/Rbertolli/tuya_php/tree/main)
+
 
 You can deploy this project on **DigitalOcean** with a single click and get **$200 in credits** when creating an account.
-
-[![Deploy to DigitalOcean](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=e6dcb42c53c3&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
 
 ## 📖 Features
 - **Generic Tuya Client:** Communicate with the Tuya API for token retrieval and device information.

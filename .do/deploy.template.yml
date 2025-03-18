@@ -1,21 +1,32 @@
+# Nome do aplicativo
 name: tuya_php
-repo: Rbertolli/tuya_php
-branch: main
-buildpack_stack: ubuntu-22
 
+# Definição do ambiente de build
+env: php
+build_command: "composer install --no-dev --optimize-autoloader"
+run_command: "php -S 0.0.0.0:${PORT}"
+
+# Serviços (web)
 services:
   - name: web
+    http_port: 8080  # A porta padrão para apps na DigitalOcean App Platform
+    envs:
+      - key: APP_ENV
+        value: production
     source_dir: /
     routes:
       - path: /
 
+# Funções (Serverless)
 functions:
   - name: tuya-login
+    runtime: php
     source_dir: functions/tuya
     entrypoint: login.php
     routes:
       - path: /tuya-login
   - name: tuya-smart-lock
+    runtime: php
     source_dir: functions/tuya
     entrypoint: smart_lock.php
     routes:

@@ -4,8 +4,8 @@ name: tuya_php
 # Serviços (web)
 services:
   - name: web
-    runtime: php # Adicionado o runtime php dentro do serviço
-    php_version: "8.1" # Adicionado a versão do PHP dentro do serviço
+    runtime: php
+    php_version: "8.1"
     http_port: 8080
     envs:
       - key: APP_ENV
@@ -15,20 +15,3 @@ services:
       - path: /
     build_command: "composer install --no-dev --optimize-autoloader"
     run_command: "php -S 0.0.0.0:${PORT}"
-
-# Funções (Serverless)
-functions:
-  - name: tuya-login
-    runtime: php # Adicionado o runtime php dentro da função
-    php_version: "8.1" # Adicionado a versão do PHP dentro da função
-    source_dir: functions/tuya
-    entrypoint: login.php
-    routes:
-      - path: /tuya-login
-  - name: tuya-smart-lock
-    runtime: php # Adicionado o runtime php dentro da função
-    php_version: "8.1" # Adicionado a versão do PHP dentro da função
-    source_dir: functions/tuya
-    entrypoint: smart_lock.php
-    routes:
-      - path: /tuya-smart-lock

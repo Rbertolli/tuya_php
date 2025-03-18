@@ -1,0 +1,15 @@
+{
+    "name": "rbertolli/tuya-php",
+    "description": "Cliente PHP para a API Tuya",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Tuya\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.2",
+        "ext-curl": "*",
+        "ext-openssl": "*"
+    }
+}

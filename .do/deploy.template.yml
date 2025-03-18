@@ -1,32 +1,41 @@
-project: tuya-php-functions  # Nome do projeto
-
-environment:
-  name: dev  # Ambiente (ex: prod, staging)
-  region: nyc  # Região do DO (ex: sfo, ams)
-
-functions:
-  # Function 1: Login
+# deploy.yaml
+name: tuya-php-functions
+region: nyc
+services:
   - name: login
-    source: ./functions/tuya/login  # Caminho relativo ao código
-    main: login.php
-    runtime: php:default  # ⚠️ Ver observação sobre PHP abaixo
-    http_route: /login    # Rota HTTP
-    methods: [POST]       # Método permitido
-    environment_variables:
-      TUYA_API_KEY: "${TUYA_API_KEY}"
-      TUYA_API_SECRET: "${TUYA_API_SECRET}"
-      TUYA_REGION: "${TUYA_REGION}"
-      API_URL: "${API_URL}"
+    http_port: 8080
+    run_command: php -S 0.0.0.0:8080 login.php
+    environment_slug: php
+    source_dir: /functions/login
+    envs:
+      - key: TUYA_API_KEY
+        scope: RUN_TIME
+        value: "${TUYA_API_KEY}"
+      - key: TUYA_API_SECRET
+        scope: RUN_TIME
+        value: "${TUYA_API_SECRET}"
+      - key: TUYA_REGION
+        scope: RUN_TIME
+        value: "${TUYA_REGION}"
+      - key: API_URL
+        scope: RUN_TIME
+        value: "${API_URL}"
 
-  # Function 2: Create Temp Password
   - name: create-temp-password
-    source: ./functions/tuya/create-temp-password
-    main: smart_lock.php
-    runtime: php:default
-    http_route: /create-temp-password
-    methods: [POST]
-    environment_variables:
-      TUYA_API_KEY: "${TUYA_API_KEY}"
-      TUYA_API_SECRET: "${TUYA_API_SECRET}"
-      TUYA_REGION: "${TUYA_REGION}"
-      API_URL: "${API_URL}"
+    http_port: 8080
+    run_command: php -S 0.0.0.0:8080 smart_lock.php
+    environment_slug: php
+    source_dir: /functions/create-temp-password
+    envs:
+      - key: TUYA_API_KEY
+        scope: RUN_TIME
+        value: "${TUYA_API_KEY}"
+      - key: TUYA_API_SECRET
+        scope: RUN_TIME
+        value: "${TUYA_API_SECRET}"
+      - key: TUYA_REGION
+        scope: RUN_TIME
+        value: "${TUYA_REGION}"
+      - key: API_URL
+        scope: RUN_TIME
+        value: "${API_URL}"

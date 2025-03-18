@@ -18,22 +18,7 @@ spec:
         repo: rbertolli/tuya_php
         branch: main
         deploy_on_push: true
-      source_dir: packages/tuya      
+      source_dir: functions/tuya      
       routes:
-        - path: /tuya
-      packages:
-    - name: tuya
-      functions:
-        - name: tuya-login
-          web: true
-          limits:
-            timeout: 3000      # tempo máximo de execução em milissegundos
-            memory: 128        # memória máxima em megabytes
-            logs: 1024         # limite de logs em kilobytes
-        - name: tuya-smart-lock
-          web: true
-          limits:
-            timeout: 3000
-            memory: 128
-            logs: 1024
+        - path: /
   

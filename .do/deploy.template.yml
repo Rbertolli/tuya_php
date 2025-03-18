@@ -1,5 +1,15 @@
 spec:
   name: tuya-app
+  envs:
+      - key: TUYA_API_KEY
+        value: "${TUYA_API_KEY}"
+        scope: RUN_TIME
+      - key: TUYA_API_SECRET
+        value: "${TUYA_API_SECRET}"
+        scope: RUN_TIME
+      - key: TUYA_REGION
+        value: "${TUYA_REGION}"
+        scope: RUN_TIME
   features:
     - buildpack-stack=ubuntu-22
   functions:

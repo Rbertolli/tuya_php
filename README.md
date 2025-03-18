@@ -16,7 +16,17 @@ A PHP client for the Tuya API, organized into a modular structure with support f
 - PHP extensions: `curl`, `openssl`
 - [Composer](https://getcomposer.org/)
 
-## Download & Installation
+## Installation via Composer
+
+If you want to install this package directly into your project, you can use Composer:
+
+```bash
+composer require rbertolli/tuya-php
+```
+
+This will automatically download and install the package along with its dependencies.
+
+## Download & Manual Installation
 
 1. **Download the Repository**
 
@@ -116,7 +126,7 @@ When deploying to production (for example, using DigitalOcean's App Platform), y
 
 ## Contributing
 
-Contributions are welcome! Feel free to open issues or submit pull requests to help improve the project or add new functionalities.
+Contributions are welcome! Feel free to open issues or submit pull requests to help improve the project or add new functionalities. 
 
 ## License
 

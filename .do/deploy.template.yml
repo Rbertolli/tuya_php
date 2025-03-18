@@ -6,7 +6,7 @@ spec:
     - name: tuya-php-functions
       type: container
       image:
-        repository: ghcr.io/Rbertolli/tuya_php
+        repository: ghcr.io/rbertolli/tuya_php
         tag: latest
       ports:
         - container_port: 8080

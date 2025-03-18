@@ -18,7 +18,7 @@ spec:
         repo: rbertolli/tuya_php
         branch: main
         deploy_on_push: true
-      source_dir: packages/tuya      
+      source_dir: /      
       routes:
         - path: /
   

@@ -17,6 +17,6 @@ spec:
       github:
         repo: rbertolli/tuya_php # Use your repository
         branch: main
-      source_dir: /packages
+      source_dir: /packages/tuya
       routes:
         - path: /

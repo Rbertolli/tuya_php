@@ -1,7 +1,7 @@
 packages:
-  - name: tuya-functions
+  - name: tuya
     functions:
-      - name: login
+      - name: tuya-login
         source: login.php
-      - name: smart_lock
+      - name: tuya-smart-lock
         source: smart_lock.php
